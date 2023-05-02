@@ -1,0 +1,109 @@
+main {
+    min-height: 100vh;
+
+    .inner_main {
+        &__my_balance {
+            background-color: $Soft-red;
+            padding: 1.7rem;
+            border-radius: 15px;
+
+            h2 {
+                font-size: $fs-md;
+                color: $pale-orange;
+            }
+
+            p {
+                color: $Cream;
+            }
+        }
+
+        &__chart {
+            max-width: 100%;
+            margin-top: 1rem;
+            border-radius: 15px;
+            padding: 2rem;
+            background-color: $pale-orange;
+
+            h1 {
+                text-align: left;
+                color: $Dark-brown;
+                font-size: 1.6rem;
+                font-weight: $Bold;
+            }
+
+            &__graph {
+                min-height: 200px;
+                align-items: flex-end;
+                gap: 0.5rem;
+
+                .col {
+                    text-align: center;
+                    cursor: pointer;
+                    position: relative;
+
+                    .show_amount {
+                        position: absolute;
+                        top: -2rem;
+                        background-color: $Dark-brown;
+                        color: $Cream;
+                        height: fit-content;
+                        width: fit-content;
+                        padding: 0.4rem 0.2rem;
+                        font-size: 0.9rem;
+                        transition: opacity 0.4s ease-in-out;
+                    }
+
+                    div {
+                        border-radius: 5px;
+                        width: 2.5rem;
+                        height: 0;
+                        transition: height 1s ease-in-out, opacity 0.3s ease-in-out;
+
+                        @include maximum(mobile) {
+                            width: 2rem;
+                        }
+                    }
+
+                    p {
+                        margin-top: 0.5rem;
+                        color: $Medium-brown;
+                        font-size: $fs-sm;
+                    }
+                }
+            }
+
+            hr {
+                height: 2px;
+                background-color: $Cream;
+                margin: 1rem 0;
+            }
+
+            &__amount {
+                p {
+                    color: $Medium-brown;
+                }
+
+                .left {
+                    h2 {
+                        margin-top: 0.1rem;
+                        font-size: $fs-lg;
+                    }
+
+                }
+
+                .right {
+                    p {
+                        text-align: right;
+
+                        span {
+                            color: $Dark-brown;
+                            font-weight: $Bold;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+}
