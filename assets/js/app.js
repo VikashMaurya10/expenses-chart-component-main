@@ -1,5 +1,9 @@
+const date = new Date();
+const currentDay = date
+  .toLocaleDateString("en-US", { weekday: "short" })
+  .toLocaleLowerCase();
+
 $.getJSON("./assets/data/data.json", (data) => {
-  const date = new Date();
   $.each(data, (index, value) => {
     $(".inner_main__chart__graph").append(`
         <div class="col d-f ai-c fd-c ai-c" id=graph-${index}>
@@ -9,7 +13,7 @@ $.getJSON("./assets/data/data.json", (data) => {
         </div>
       `);
   });
-  //
+
   $(".col").each((index, element) => {
     $(element).hover(
       () => {
@@ -26,12 +30,13 @@ $.getJSON("./assets/data/data.json", (data) => {
       }
     );
   });
+
   setTimeout(() => {
     $.each(data, (index, value) => {
       let height = value.amount;
       let totalHeight = 100;
       let newHeight = (totalHeight / 40) * height;
-      if (date.getDay() == index + 1) {
+      if (currentDay == value.day) {
         $(`#${index}`).css({
           height: `${newHeight}px`,
           backgroundColor: "hsl(186, 34%, 60%)",
